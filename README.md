@@ -28,6 +28,45 @@ Describe the initial design concept: Hardware/software architecture, programming
 
 The background will contain a more detailed description of the product and a comparison to existing similar projects/products. A literature search should be conducted and the results listed. Proper citation of sources is required. If there are similar open-source products, you should state whether existing source will be used and to what extent. If there are similar closed-source/proprietary products, you should state how the proposed product will be similar and different.
 
+## Feature Requirements
+This project connects 2-5(?) users together using Augmentative and Alternative Communication (AAC) Devices, giving users the ability to:
+- Communicate in real-time using AAC devices  
+- Play Go Fish together, facilitated by the AAC devices
+
+### High-Level Outcomes
+- Easy and accessible communication through the device  
+- Accessible gameplay  
+- Clear instructions on game rules  
+- Clear audio and visual cues for game actions like asking for a card  
+- The game should integrate seamlessly with the AAC device making it easy to switch between communication and the game  
+
+## Technical Requirements
+
+### AAC Communication
+- Users can select words/symbols for common messages like “Do you have any 5s?”  
+- Grid layout should be customizable (check with Cindy)  
+- Clear icons with accessibility guidelines in mind  
+
+#### Voice Output
+- TTS for saying the selected message out loud  
+- Ability to quickly say common quick statements like yes/no/repeat  
+
+### Go Fish Game
+- Standard game mechanics  
+- On-screen AAC-based prompts to make each move. When selected, the device should say the action out loud and complete the action in the game  
+- Clear turn indicators  
+
+## Non-Technical Requirements
+
+### Constraints
+- Usability/accessibility  
+- Ensuring we stay in line with the standard accessibility guidelines  
+
+### Things to be Aware Of
+- Device compatibility  
+- Do Various languages?
+
+
 ## Required Resources
 
 Discuss what you need to develop this project. This includes background information you will need to acquire, hardware resources, and software resources. If these are not part of the standard Computer Science Department lab resources, these must be identified early and discussed with the instructor.
