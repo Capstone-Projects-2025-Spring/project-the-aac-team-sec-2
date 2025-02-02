@@ -1,0 +1,32 @@
+
+title Use Case Diagram 1
+
+User->WebApp:Access web application
+WebApp-->User:Web application loaded
+User->WebApp:Start a game lobby
+WebApp-->User:Lobby created
+User->MessagingApp:Share lobby link externally
+User->WebApp:Start game
+WebApp-->User:Game started
+User->WebApp:Play Go Fish
+WebApp-->User:Game in progress
+User->WebApp:Send messages in chat
+WebApp-->User:Receive other's chats
+User->WebApp:Finish game and exit application
+WebApp-->User:Session ended
+
+
+title Use Case Diagram 2
+
+User->MessagingApp:Click lobby link  
+
+MessagingApp->WebApp:Open web application  
+WebApp-->User:Lobby joined  
+User->WebApp:Wait for game to start  
+WebApp-->User:Game started  
+User->WebApp:Play Go Fish  
+WebApp-->User:Game in progress  
+User->WebApp:Send messages in chat  
+WebApp-->User:Receive other's chats  
+User->WebApp:Finish game and exit application  
+WebApp-->User:Session ended  
