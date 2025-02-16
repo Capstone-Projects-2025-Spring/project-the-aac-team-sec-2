@@ -1,13 +1,35 @@
 from typing import Union
-
+from pydantic import BaseModel
 from fastapi import FastAPI
-
 import random
 
 from lobby import Lobby
 from player import Player
 
 app = FastAPI()
+
+lobbies = {}
+animals = ["Turtle","Shark","Fish"]
+
+def generate_unique_code():
+    while True:
+        code = '-'.join(random.choices(animals,k=3))
+        if code not in lobbies:
+            return code
+
+@app.post("/create_lobby")
+def create_lobby():
+    code = generate_unique_code()
+    lobbies[code] = {"players": []}
+    return {"code":code}   
+
+@app.get("/lobby/{code}")
+def get_lobby(code: str):
+    lobby = lobbies.get(code)
+    if lobby is None:
+        return {"error": "Lobby not found"}
+    return {"code": code, "players": lobby["players"]}    
+          
 
 @app.get("/testGameState/")
 async def test_game_state():
