@@ -32,7 +32,7 @@ def get_lobby(code: str):
 def join_lobby(code:str, player:str):
     try:
         lobby = lobbies[code]
-    except:
+    except KeyError:
         raise HTTPException(status_code=404, detail="Lobby not found")
     lobby["players"].append(player)
     return {"code":code, "players":lobby["players"]}
