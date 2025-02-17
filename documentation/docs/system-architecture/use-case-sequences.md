@@ -140,7 +140,7 @@ sequenceDiagram
 
     User->>WebApplication: Puts down a set or gets cards taken, hand is empty
     WebApplication->>Backend: Update backend with request to draw up to 3 cards
-    Backend-->>WebApplication: Return up to 3 cards 
+    Backend-->>WebApplication: Return up to 3 cards
     WebApplication-->>User: Show user receiving up to 3 cards
 ```
 
@@ -216,7 +216,7 @@ sequenceDiagram
     User->>WebApplication: Clicks the "AAC Menu" button
     WebApplication-->>User: Display AAC Menu with available phrases/words with pictures
     User->>WebApplication: Selects a phrase or word from the menu
-    WebApplication->>Backend: Send selected phrase or word 
+    WebApplication->>Backend: Send selected phrase or word
     Backend-->>WebApplication: Acknowledge selected phrase or word
     WebApplication-->>User: Display selected phrase or word in the chat
     Backend->>Other User's Frontend: Broadcast selected phrase to other users
@@ -242,7 +242,7 @@ sequenceDiagram
 
 ## **Use Case 14 - Win the Game**
 
-```mermaid 
+```mermaid
 sequenceDiagram
     participant User
     participant WebApplication as Web Application
