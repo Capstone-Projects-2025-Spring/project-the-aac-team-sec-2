@@ -4,7 +4,7 @@ from fastapi import FastAPI
 
 import random
 
-from models import Lobby, Player
+from .models import Lobby, Player
 
 app = FastAPI()
 
