@@ -1,7 +1,7 @@
 from typing import Union
 from pydantic import BaseModel
-from fastapi import FastAPI, WebSocket
-from .models import Message, MessageKind, QueryResponse, Lobby, Player
+from fastapi import FastAPI, WebSocket, HTTPException
+from models import Message, MessageKind, QueryResponse, Lobby, Player
 
 import random
 
@@ -28,6 +28,14 @@ def get_lobby(code: str):
         return {"error": "Lobby not found"}
     return {"code": code, "players": lobby["players"]} 
 
+@app.post("/lobby/{code}/join")
+def join_lobby(code:str, player:str):
+    try:
+        lobby = lobbies[code]
+    except KeyError:
+        raise HTTPException(status_code=404, detail="Lobby not found")
+    lobby["players"].append(player)
+    return {"code":code, "players":lobby["players"]}
 
 @app.get("/testGameState/")
 async def test_game_state():
@@ -37,7 +45,7 @@ async def test_game_state():
     # add players to lobby
     player1 = Player(id=1,name="player 1")
     game.players[player1.id] = player1
-    game.player_count += 1
+    game.player_count += 1 
     player2 = Player(id=2,name="player 2")
     game.players[player2.id] = player2
     game.player_count += 1
