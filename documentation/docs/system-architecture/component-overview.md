@@ -17,7 +17,7 @@ Handles game state, lobby creation, and chat. Issues state updates to the Single
 
 #### HTTP
 
-* `POST /create` - Initialize game state, creates randomized lobby code. 
+* `POST /create` - Initialize game state, creates randomized lobby code.
 * `POST /join` - Users specify a game code for a lobby to join.
 * `POST /start` - Starts the game. Only available to users that have created a lobby.
 
@@ -134,4 +134,4 @@ Protocol for WSS messages.
 
 ## Single Page Application (React)
 
-Two-way communication of moves and chat messages between client and server. Communicates with the FastAPI backend via common WebSocket protocol. Currently, no functionality with HTTP endpoints. 
+Two-way communication of moves and chat messages between client and server. Communicates with the FastAPI backend via common WebSocket protocol. Currently, no functionality with HTTP endpoints.

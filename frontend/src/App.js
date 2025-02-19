@@ -4,8 +4,8 @@ const WebSocketDemo = () => {
     const [messages, setMessages] = useState([]);
     const [ws, setWs] = useState(null);
     const [message, setMessage] = useState("");
-    const [playerId, setPlayerId] = useState(1);  
-    const [card, setCard] = useState(1);          
+    const [playerId, setPlayerId] = useState(1);
+    const [card, setCard] = useState(1);
 
     useEffect(() => {
         const socket = new WebSocket("ws://localhost:8000/ws");
@@ -40,7 +40,7 @@ const WebSocketDemo = () => {
             sendMessage();
         }
     };
-	
+
 	const isWebSocketConnecting = ws && ws.readyState === WebSocket.CONNECTING;
 
     return (
@@ -56,28 +56,28 @@ const WebSocketDemo = () => {
             <button onClick={sendMessage} disabled={isWebSocketConnecting}>Send</button>
 
             <h3>Got any...</h3>
-            Player: 
-            <input 
-                type="range" 
-                min="1" 
-                max="4" 
-                value={playerId} 
-                onChange={(e) => setPlayerId(e.target.value)} 
+            Player:
+            <input
+                type="range"
+                min="1"
+                max="4"
+                value={playerId}
+                onChange={(e) => setPlayerId(e.target.value)}
             />
             <span> {playerId}</span>
             <br />
-            Card: 
-            <input 
-                type="range" 
-                min="1" 
-                max="10" 
-                value={card} 
-                onChange={(e) => setCard(e.target.value)} 
+            Card:
+            <input
+                type="range"
+                min="1"
+                max="10"
+                value={card}
+                onChange={(e) => setCard(e.target.value)}
             />
             <span> {card}</span>
             <br />
             <button onClick={sendQuery} disabled={isWebSocketConnecting}>Send</button>
-			
+
 			<h3>Event Log</h3>
 			<div>
                 {messages.map((msg, idx) => (
